@@ -31,10 +31,10 @@ class Recording extends Wowza
     protected $currentDuration = "0";
     protected $recordingStartTime = "";
 
-    public function __construct(Settings $settings)
+    public function __construct(Settings $settings,$name)
     {
         parent::__construct($settings);
-        $this->restURI = $this->getHost() . "/servers/" . $this->getServerInstance() . "/vhosts/_defaultVHost_/applications/live/instances/_definst_/streamrecorders";
+        $this->restURI = $this->getHost() . "/servers/" . $this->getServerInstance() . "/vhosts/_defaultVHost_/applications/{$name}/streamrecorders";
     }
 
     public function create(
